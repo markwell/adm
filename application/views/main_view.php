@@ -11,21 +11,21 @@
            	  	<!-- Слайды -->
            	  	<div class="carousel-inner">
            	  		<div class="item active">
-           	  			<img src="images/1.jpg" alt="">
+           	  			<img src="/adm/images/1.jpg" alt="">
            	  			<div class="carousel-caption">
            	  				<h3>WELCOME!</h3>
            	  				<p>Мы рады приветствовать Вас на нашем сайте!</p>
            	  			</div>
            	  		</div>
            	  		<div class="item">
-           	  			<img src="images/2.jpg" alt="">
+           	  			<img src="/adm/images/2.jpg" alt="">
            	  			<div class="carousel-caption">
            	  				<h3></h3>
            	  				<p>Управляющая компания "Адмирал" образована в 2007 году, для того чтобы воплотить в жизнь мечту и основную возможность, заложенную в новом Жилищном Кодексе, - создать открытую современную клиентоориентированную компанию в сфере управления жилыми многоквартирными домами. </p>
            	  			</div>
            	  		</div>
            	  		<div class="item">
-           	  			<img src="images/3.jpg" alt="">
+           	  			<img src="/adm/images/3.jpg" alt="">
            	  			<div class="carousel-caption">
            	  				<h3></h3>
            	  				<p> Работать на людей и для людей, не будучи деталью бюрократической машины. </p>
@@ -52,9 +52,9 @@
 
            Здесь вы найдёте всю необходимую информацию, подлежащую раскрытию, согласно Стандарта раскрытия информации (Постановления Правительства №731 от 23 октября 2010).      
            </div>
-
+          <br />
          <form role="form" class="form-horizontal"  method="POST" action="/adm/main/sendMessage">
-          <h3>Письмо директору</h3>
+          <h3 class="text-center">Письмо директору</h3>
            <div class="form-group">
              <label for="exampleInputName1">Имя</label>
              <input type="name" name="nameFF" class="form-control" id="exampleInputPassword1" placeholder="Имя" x-autocompletetype="name">

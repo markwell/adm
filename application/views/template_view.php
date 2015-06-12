@@ -6,8 +6,8 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <title>УК "Адмирал" - всегда рядом!</title>
 	  <!-- Bootstrap -->
-	  <link href="css/jumbotron-narrow.css" rel="stylesheet">
-	  <link href="css/bootstrap.css" rel="stylesheet">
+	  <link href="/adm/css/jumbotron-narrow.css" rel="stylesheet">
+	  <link href="/adm/css/bootstrap.css" rel="stylesheet">
 	  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	  <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
      <body>
        <div class="container">
          <div class="header">
-          <img src="images/Shapka.jpg">
+          <img src="/adm/images/Shapka.jpg">
           <!-- <h3 class="text-muted">ООО УК "АДМИРАЛ"</h3>
           <h3 class="text-muted">УПРАВЛЯЮЩАЯ КОМПАНИЯ</h3> -->
            <ul class="nav nav-pills">
@@ -31,14 +31,14 @@
                     Дома <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="homes">Дома в управлении</a></li>
-                    <li><a href="unmanaged">Дома, управление которыми прекращенно</a></li>
+                    <li><a href="/adm/homes">Дома в управлении</a></li>
+                    <li><a href="/adm/unmanaged">Дома, управление которыми прекращенно</a></li>
                 </ul>
              </li>
-             <li><a href="report">Отчетность</a></li>
-             <li><a href="charges">Нарушения</a></li>
-             <li><a href="about">О компании</a></li>
-             <li><a href="order">Заказать</a></li>
+             <li><a href="/adm/report">Отчетность</a></li>
+             <li><a href="/adm/charges">Нарушения</a></li>
+             <li><a href="/adm/about">О компании</a></li>
+             <li><a href="/adm/order">Заказать</a></li>
            </ul>
            
          </div>
@@ -60,6 +60,10 @@
                  Наш адрес:
                  Приморский край, Владивосток, улица Набережная, д. 5<br>
                </address>
+               <address>
+                <strong>Администратор?</strong><br>
+                <a href="/adm/login">Вход</a>
+              </address>
             </div>
             <div class="col-xs-4 col-md-4 table-bordered"> 
            <address>
@@ -87,6 +91,7 @@
                 Электрик +79242319881 <br>
                 Управляющая  2744-439
               </address>
+              
           </div>
          </div>
 
@@ -96,9 +101,9 @@
        <!-- Placed at the end of the document so the pages load faster -->
      
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/jquery.min.js"></script>
+		<script src="/adm/js/jquery.min.js"></script>
 	  <!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.js"></script>
+		<script src="/adm/js/bootstrap.js"></script>
 	 
    </body>
 </html>

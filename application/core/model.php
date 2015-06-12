@@ -5,7 +5,7 @@ class Model
 	{
 		   # Соединяемся с БД
 		try {  
-          $this->DBH = new PDO("mysql:host=localhost;dbname=users", 'root', '');  
+          $this->DBH = new PDO("mysql:host=localhost;dbname=Admiral", 'root', '');  
           $this->DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION ); 
           
         }  

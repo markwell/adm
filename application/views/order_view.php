@@ -7,7 +7,6 @@
             echo('<br><div class="alert alert-info" role="alert">'.$data.'</div>');
           }
       ?>
-      <div class="alert alert-info" role="alert">После получения заявки с вами свяжется наш специалист</div>
       <form role="form" class="form-horizontal"  method="POST" action="/adm/order/sendMessage">
         <div class="form-group">
           <label>Адрес обслуживаемого дома</label>
