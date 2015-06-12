@@ -14,7 +14,7 @@
            	  			<img src="images/1.jpg" alt="">
            	  			<div class="carousel-caption">
            	  				<h3>WELCOME!</h3>
-           	  				<p>Мы рады приветствовать Вас на Едином Портале Управляющих компаний!</p>
+           	  				<p>Мы рады приветствовать Вас на нашем сайте!</p>
            	  			</div>
            	  		</div>
            	  		<div class="item">
@@ -42,7 +42,7 @@
            		</div>
          </div>
 
-         <div class="row marketing">
+         <div class="row marketing text-center lead">
           
            <h3>Обращение директора</h3>
 
@@ -53,23 +53,27 @@
            Здесь вы найдёте всю необходимую информацию, подлежащую раскрытию, согласно Стандарта раскрытия информации (Постановления Правительства №731 от 23 октября 2010).      
            </div>
 
-         <form role="form" class="form-horizontal">
+         <form role="form" class="form-horizontal"  method="POST" action="/adm/main/sendMessage">
           <h3>Письмо директору</h3>
            <div class="form-group">
              <label for="exampleInputName1">Имя</label>
-             <input type="name" class="form-control" id="exampleInputPassword1" placeholder="Имя">
+             <input type="name" name="nameFF" class="form-control" id="exampleInputPassword1" placeholder="Имя" x-autocompletetype="name">
            </div>
            <div class="form-group">
              <label for="exampleInputEmail1">Почта</label>
-             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Почта">
+             <input type="email" name="contactFF" class="form-control" id="exampleInputEmail1" placeholder="Почта" x-autocompletetype="email">
            </div>
            <div class="form-group">
            <label for="exampleInputName1">Обращение</label>
-           <textarea class="form-control" rows="3"></textarea>
+           <textarea class="form-control" name="messageFF" rows="3"></textarea>
          </div>
            <button type="submit" class="btn btn-default">Отправить</button>
          </form>
-
+         <? 
+         if (isset($data)){
+               echo('<br><div class="alert alert-info" role="alert">'.$data.'</div>');
+             }
+         ?>
          <h3>Новости</h3>
          <div class="row">
            <div class="col-sm-6 col-md-4">
