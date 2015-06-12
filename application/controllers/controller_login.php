@@ -31,12 +31,34 @@ class Controller_Login extends Controller
                 setcookie("hash", "", time() - 3600*24*30*12, "/");
                 $message = "Авторизуйтесь пожалуйста.";
             } else {
-                $message = "Привет, ".$userdata['user_login'].". Все отлично!";
+                $message = "Здравствуйте! Теперь вы можете редактировать содержимое сайта прямо на страницах сайта.";
             }
         } else {
                 $message = "Пожалуйста, включите куки.";
         }
         $this->view->generate('login_view.php', 'template_view.php', $message);
     }
+    function action_deleteNews()
+    {
+        $id = $_GET['id'];
+                $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
+                if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
+                    if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
+                        setcookie("id", "", time() - 3600*24*30*12, "/");
+                        setcookie("username", "", time() - 3600*24*30*12, "/");
+                        setcookie("hash", "", time() - 3600*24*30*12, "/");
+                        $message = "Авторизуйтесь пожалуйста.";
+                        $this->view->generate('login_view.php', 'template_view.php', $message);
+                    } else {
+                                $this->model->deleteObjFromNews($id);
+                                // $this->
+                            }
+                    } else {
+                                $message = "Пожалуйста, включите куки.";
+                                $this->view->generate('login_view.php', 'template_view.php', $message);
+                            }
+                
+                
+    } 
     
 }

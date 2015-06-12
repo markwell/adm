@@ -4,7 +4,6 @@ class Model_Login extends Model
     public function __construct()
     {
         $this->db_connect();
-        
     }
     # Функция для генерации случайной строки
     public function generateCode($length = 6)
@@ -56,21 +55,19 @@ class Model_Login extends Model
         $userdata = $query->fetch(PDO::FETCH_ASSOC);
         return $userdata;
     }
-    public function addItemToOrder($user_id, $item_id)
+    public function addObjToNews($item_id)
     {
-        $query = $this->DBH->prepare("INSERT INTO orders SET user_id=:user_id, item_id=:item_id");
-        $query->bindParam(':user_id', $user_id);
+        $query = $this->DBH->prepare("INSERT INTO item SET item_id=:item_id");
         $query->bindParam(':item_id', $item_id);
         $query->execute();
     }
-    public function deleteItemFromOrder($user_id, $item_id)
+    public function deleteObjFromNews($id)
     {
-        $query = $this->DBH->prepare("DELETE FROM orders WHERE user_id=:user_id AND item_id=:item_id");
-        $query->bindParam(':user_id', $user_id);
-        $query->bindParam(':item_id', $item_id);
+        $query = $this->DBH->prepare("DELETE FROM item WHERE id=:id");
+        $query->bindParam(':id', $id);
         $query->execute();
     }
-    public function getItems()
+    public function getNews()
     {
         $query = $this->DBH->prepare("SELECT * FROM item");
         $query->execute();
