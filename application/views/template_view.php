@@ -61,8 +61,13 @@
                  Приморский край, Владивосток, улица Набережная, д. 5<br>
                </address>
                <address>
-                <strong>Администратор?</strong><br>
-                <a href="/adm/login">Вход</a>
+                <?php if (isset($_COOKIE['username'])){echo 'Пользователь: '.$_COOKIE['username'].' <br /><a href="/adm/login/logoutUser">Выход</a>';} else {
+                  
+                  echo "
+                  <strong>Администратор?</strong><br>
+                  <a href='/adm/login'>Вход</a>";
+                } ?>
+                
               </address>
             </div>
             <div class="col-xs-4 col-md-4 table-bordered"> 

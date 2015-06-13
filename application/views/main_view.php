@@ -53,7 +53,7 @@
            Здесь вы найдёте всю необходимую информацию, подлежащую раскрытию, согласно Стандарта раскрытия информации (Постановления Правительства №731 от 23 октября 2010).      
            </div>
           <br />
-         <form role="form" class="form-horizontal"  method="POST" action="/adm/main/index">
+         <form role="form" class="form-horizontal"  method="POST" action="/adm/">
           <h3 class="text-center">Письмо директору</h3>
            <div class="form-group">
              <label for="exampleInputName1">Имя</label>
@@ -70,7 +70,7 @@
            <button type="submit" name="submit" class="btn btn-default">Отправить</button>
          </form>
          <? 
-            if (isset($data['alert'])){
+            if ($data['alert'] != ''){
                echo('<br><div class="alert alert-info" role="alert">'.$data['alert'].'</div>');
              }
          ?>

@@ -51,7 +51,7 @@ class Controller_Login extends Controller
                         $this->view->generate('login_view.php', 'template_view.php', $message);
                     } else {
                                 $this->model->deleteObjFromNews($id);
-                                // $this->
+                                header('Location:/adm/news');
                             }
                     } else {
                                 $message = "Пожалуйста, включите куки.";
@@ -73,7 +73,7 @@ class Controller_Login extends Controller
                 $this->view->generate('login_view.php', 'template_view.php', $message);
             } else {
                         $this->model->addObjToNews($_POST['titleFF'],$_POST['textFF']);
-                        echo "Добавлено!";
+                        header('Location:/adm/news');
                     }
             } else {
                         $message = "Пожалуйста, включите куки.";
@@ -82,6 +82,13 @@ class Controller_Login extends Controller
         
         }
     }
+    function action_logoutUser()
+    {
+        setcookie("id", "", time() - 3600*24*30*12, "/");
+        setcookie("username", "", time() - 3600*24*30*12, "/");
+        setcookie("hash", "", time() - 3600*24*30*12, "/");
+        header('Location:/adm/login');
+    } 
     function action_deleteHomes()
     {
         $id = $_GET['id'];
@@ -95,13 +102,12 @@ class Controller_Login extends Controller
                         $this->view->generate('login_view.php', 'template_view.php', $message);
                     } else {
                                 $this->model->deleteObjFromHomes($id);
-                                // $this->
+                                header('Location:/adm/homes');
                             }
                     } else {
                                 $message = "Пожалуйста, включите куки.";
                                 $this->view->generate('login_view.php', 'template_view.php', $message);
                             }
-                
     } 
     function action_addHome()
     {
@@ -116,7 +122,7 @@ class Controller_Login extends Controller
                 $this->view->generate('login_view.php', 'template_view.php', $message);
             } else {
                         $this->model->addObjToHomes($_POST['adresFF'],$_POST['whyFF'],$_POST['datestartFF']);
-                        // header('Location:/adm/homes');
+                        header('Location:/adm/homes');
                     }
             } else {
                         $message = "Пожалуйста, включите куки.";
