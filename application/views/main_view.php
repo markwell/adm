@@ -53,7 +53,7 @@
            Здесь вы найдёте всю необходимую информацию, подлежащую раскрытию, согласно Стандарта раскрытия информации (Постановления Правительства №731 от 23 октября 2010).      
            </div>
           <br />
-         <form role="form" class="form-horizontal"  method="POST" action="/adm/main/sendMessage">
+         <form role="form" class="form-horizontal"  method="POST" action="/adm/main/index">
           <h3 class="text-center">Письмо директору</h3>
            <div class="form-group">
              <label for="exampleInputName1">Имя</label>
@@ -67,26 +67,26 @@
            <label for="exampleInputName1">Обращение</label>
            <textarea class="form-control" name="messageFF" rows="3"></textarea>
          </div>
-           <button type="submit" class="btn btn-default">Отправить</button>
+           <button type="submit" name="submit" class="btn btn-default">Отправить</button>
          </form>
          <? 
-         if (isset($data)){
-               echo('<br><div class="alert alert-info" role="alert">'.$data.'</div>');
+            if (isset($data['alert'])){
+               echo('<br><div class="alert alert-info" role="alert">'.$data['alert'].'</div>');
              }
          ?>
-         <h3>Новости</h3>
-         <div class="row">
-           <div class="col-sm-6 col-md-4">
-             <div class="thumbnail">
-               <img src="..." alt="...">
-               <div class="caption">
-                 <h3>Thumbnail label</h3>
-                 <p>...</p>
-                 <p><a href="#">Читать далее</a></p>
-               </div>
-             </div>
-           </div>
-         </div>
+         <h2>Новости</h2>
+                  <?php for ($i=0; $i < count($data)-1; $i++) //отнимаем 1 т.к. последний элемент массива это alert
+                     {   
+                         echo '
+                         <div class="row">
+                           <div class="caption">
+                             <h3>'.$data[$i]['title'].'</h3>
+                           </div>
+                           <p>'.$data[$i]['text'].'</p>
+                           <p><small>Дата создания: '.$data[$i]['date_create'].'</small></p>
+                         </div>
+                          ';
+                     }?>
 
          <h3>Факты</h3>
          <div class="row marketing">

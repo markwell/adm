@@ -60,5 +60,69 @@ class Controller_Login extends Controller
                 
                 
     } 
-    
+    function action_addNew()
+    {
+        if (isset($_POST['submit'])) {
+        $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
+        if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
+            if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
+                setcookie("id", "", time() - 3600*24*30*12, "/");
+                setcookie("username", "", time() - 3600*24*30*12, "/");
+                setcookie("hash", "", time() - 3600*24*30*12, "/");
+                $message = "Авторизуйтесь пожалуйста.";
+                $this->view->generate('login_view.php', 'template_view.php', $message);
+            } else {
+                        $this->model->addObjToNews($_POST['titleFF'],$_POST['textFF']);
+                        echo "Добавлено!";
+                    }
+            } else {
+                        $message = "Пожалуйста, включите куки.";
+                        $this->view->generate('login_view.php', 'template_view.php', $message);
+                    }
+        
+        }
+    }
+    function action_deleteHomes()
+    {
+        $id = $_GET['id'];
+                $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
+                if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
+                    if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
+                        setcookie("id", "", time() - 3600*24*30*12, "/");
+                        setcookie("username", "", time() - 3600*24*30*12, "/");
+                        setcookie("hash", "", time() - 3600*24*30*12, "/");
+                        $message = "Авторизуйтесь пожалуйста.";
+                        $this->view->generate('login_view.php', 'template_view.php', $message);
+                    } else {
+                                $this->model->deleteObjFromHomes($id);
+                                // $this->
+                            }
+                    } else {
+                                $message = "Пожалуйста, включите куки.";
+                                $this->view->generate('login_view.php', 'template_view.php', $message);
+                            }
+                
+    } 
+    function action_addHome()
+    {
+        if (isset($_POST['submit'])) {
+        $userdata = $this->model->getHashAndID(intval($_COOKIE['id']));
+        if (isset($_COOKIE['id']) and isset($_COOKIE['hash'])) {
+            if (($userdata['user_hash'] !== $_COOKIE['hash']) or ($userdata['user_id'] !== $_COOKIE['id'])) {
+                setcookie("id", "", time() - 3600*24*30*12, "/");
+                setcookie("username", "", time() - 3600*24*30*12, "/");
+                setcookie("hash", "", time() - 3600*24*30*12, "/");
+                $message = "Авторизуйтесь пожалуйста.";
+                $this->view->generate('login_view.php', 'template_view.php', $message);
+            } else {
+                        $this->model->addObjToHomes($_POST['adresFF'],$_POST['whyFF'],$_POST['datestartFF']);
+                        // header('Location:/adm/homes');
+                    }
+            } else {
+                        $message = "Пожалуйста, включите куки.";
+                        $this->view->generate('login_view.php', 'template_view.php', $message);
+                    }
+        
+        }
+    }
 }

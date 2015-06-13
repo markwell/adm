@@ -55,10 +55,19 @@ class Model_Login extends Model
         $userdata = $query->fetch(PDO::FETCH_ASSOC);
         return $userdata;
     }
-    public function addObjToNews($item_id)
+    public function addObjToNews($title, $text)
     {
-        $query = $this->DBH->prepare("INSERT INTO item SET item_id=:item_id");
-        $query->bindParam(':item_id', $item_id);
+        $query = $this->DBH->prepare("INSERT INTO item SET title=:title,text=:content");
+        $query->bindParam(':title', $title);
+        $query->bindParam(':content', $text);
+        $query->execute();
+    }
+    public function addObjToHomes($adr, $why, $start)
+    {
+        $query = $this->DBH->prepare("INSERT INTO homes SET adres=:adr,foundation=:why,datestart=:start");
+        $query->bindParam(':adr', $adr);
+        $query->bindParam(':why', $why);
+        $query->bindParam(':start', $start);
         $query->execute();
     }
     public function deleteObjFromNews($id)
@@ -67,14 +76,13 @@ class Model_Login extends Model
         $query->bindParam(':id', $id);
         $query->execute();
     }
-    public function getNews()
+    public function deleteObjFromHomes($id)
     {
-        $query = $this->DBH->prepare("SELECT * FROM item");
+        $query = $this->DBH->prepare("DELETE FROM homes WHERE id=:id");
+        $query->bindParam(':id', $id);
         $query->execute();
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
     }
-     public function getOrderItems($user_id)
+    public function getOrderItems($user_id)
     {
         $query = $this->DBH->prepare("SELECT * FROM item WHERE id IN (SELECT item_id FROM orders WHERE user_id =:user_id)"); 
         $query->bindParam(':user_id', $user_id);
