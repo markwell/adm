@@ -47,15 +47,19 @@
                        </a>
                      </div>
                    </div>
-                 </div>
-                 <a href="/adm/login/deleteHomes?id='.$data[$i]['id'].'">Удалить из списка</a>
-                </li>
-                 ';
+                 </div>';
+                 if ((isset($_COOKIE['username'])) && ($_COOKIE['username'] == 'admin')) {
+                  echo '
+                 <a href="/adm/login/deleteHomes?id='.$data[$i]['id'].'">Удалить из списка</a>';
+                  }
+                echo '</li>';
             }?>
             <br>
             <br>
             <br>
-         
+         <?php 
+         if ((isset($_COOKIE['username'])) && ($_COOKIE['username'] == 'admin')) {
+             echo '
          <div class="row">
          <h4>Добавить дом</h4>
          <form role="form" class="form-horizontal" method="POST" action="/adm/login/addHome">
@@ -76,7 +80,9 @@
          </div>
          <br>
         
-         </div>
-
+         </div>'
+         ; }
+         ?>
+                  
             
         

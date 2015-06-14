@@ -9,14 +9,21 @@
                   </div>
                   <p>'.$data[$i]['text'].'</p>
                   <p><small>Дата создания: '.$data[$i]['date_create'].'</small></p>
-                </div>
-                <a href="/adm/login/deleteNews?id='.$data[$i]['id'].'">Удалить новость</a>
-                 ';
+                </div>';
+                 if ((isset($_COOKIE['username'])) && ($_COOKIE['username'] == 'admin')) {
+                  echo '
+                <a href="/adm/login/deleteNews?id='.$data[$i]['id'].'">Удалить новость</a>';
+                  }
             }?>
+                
+                 
             <br>
             <br>
             <br>
-         <div class="row">
+            <?php 
+           if ((isset($_COOKIE['username'])) && ($_COOKIE['username'] == 'admin')) {
+             echo 
+             '<div class="row">
          <h4>Добавить новость</h4>
          <form role="form" class="form-horizontal" method="POST" action="/adm/login/addNew">
            <div class="form-group">
@@ -30,4 +37,7 @@
            <button type="submit" name="submit" class="btn btn-default">Добавить</button>
          </form>
          </div>
-         <br>
+         <br>';
+           }
+           ?>
+         
